@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silver Castle Beach Resort</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+</head>
+
+<body class="booody">
+    <div class="main-bg">
+        <nav class="navbar">
+            <div class="logo">Silver-C</div>
+            
+                <ul>
+                    <li><a href="index.html">MAIN PAGE</a></li>
+                    <li><a href="cottages.html">COTTAGES</a></li>
+                    <li><a href="rooms.html">ROOM RATES</a></li>
+                    <li><a href="reservations.html">RESERVATIONS</a></li>
+                    <li><a href="about.html">ABOUT US</a></li>
+                </ul>
+            
+            </nav>
+    
+
+        <div class="rescontainer">
+            <h2 class="res">Reservation Form</h2>
+            <form id="reservation-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="check-in">Check-in Date:</label>
+                    <input type="date" id="check-in" name="check-in" required>
+                </div>
+                <div class="form-group">
+                    <label for="check-out">Check-out Date:</label>
+                    <input type="date" id="check-out" name="check-out" required>
+                </div>
+                <div class="form-group">
+                    <label for="special-requests">Special Requests:</label>
+                    <textarea id="special-requests" name="special-requests" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+            <div id="message" class="message" style="display: none;"></div>
+        </div>
+    
+        <script>
+            document.getElementById("reservation-form").addEventListener("submit", function(event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+                var name = formData.get("name");
+                var email = formData.get("email");
+                var checkIn = formData.get("check-in");
+                var checkOut = formData.get("check-out");
+                var specialRequests = formData.get("special-requests");
+    
+                
+                // Display a message to the user
+                var messageDiv = document.getElementById("message");
+                messageDiv.innerText = "Thank you, " + name + "! Your reservation from " + checkIn + " to " + checkOut + " has been submitted.";
+                messageDiv.style.display = "block";
+                this.reset(); 
+            });
+        </script>
+
+<footer class="footer">
+    <small><em><p>&copy; 2024 Silver Castle Beach Resort. All rights reserved.</p></em></small>
+</footer>
+    
+        </div>
+            
+</body>
+</html>
